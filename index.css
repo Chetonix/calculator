@@ -39,6 +39,7 @@ body {
 .display-screen input#screen {
   width: 320px;
   height: 40px;
+  border-radius: 10px;
 }
 
 .calc-buttons {
@@ -60,4 +61,15 @@ body {
 
 .btn.operator {
   background-color: #4b99f7;
+}
+
+.btn.equal {
+  background-color: #fc3c64;
+  /* grid-column: ; */
+}
+.btn.decimal {
+  background-color: #fc9cac;
+}
+.btn.clear {
+  background-color: #f9fafb;
 }

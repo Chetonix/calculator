@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
-  background-color: #fff;
+  background-color: #f9fafb;
 }
 
 .container {
@@ -21,13 +21,24 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0 auto;
-  background-color: pink;
+}
+.container h1 {
+  margin-bottom: 0.8rem;
 }
 
 .display-screen {
   background-color: #eee;
+  margin-top: 0.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
   /* margin: 5rem 10rem;
   padding: 2rem 2rem; */
+}
+.display-screen input#screen {
+  width: 320px;
+  height: 40px;
 }
 
 .calc-buttons {
@@ -35,4 +46,18 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   margin: 0.8rem auto;
+}
+.btn {
+  width: 80px;
+  height: 80px;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+}
+
+.btn.number {
+  background-color: #b2bfd8;
+}
+
+.btn.operator {
+  background-color: #4b99f7;
 }

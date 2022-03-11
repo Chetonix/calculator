@@ -11,6 +11,8 @@ let number2 = "0";
 let sign = "";
 let isNum1Filled = false;
 let isNum2Filled = false;
+let result = "0"
+
 function handleNumber() {
     if (isNum1Filled == false) {
         number1 = number1 + this.textContent;
@@ -31,18 +33,21 @@ function operate(num1, num2) {
     num1 = parseFloat(num1);
     num2 = parseFloat(num2);
     if (sign == "/") {
-        return num1 / num2;
+        result = num1 / num2;
     } else if (sign == "*") {
-        return num1 * num2;
+        result = num1 * num2;
     } else if (sign == "-") {
-        return num1 - num2;
+        result = num1 - num2;
     } else if (sign == "+"){
-        return num1 + num2;
+        result = num1 + num2;
     } else if (sign == "%") {
-        return num1 % num2;
+        result = num1 % num2;
     } else {
-        return num1;
+        result = num1; //handle later
     }
+    console.log(result);
+    // result = String(result);
+    displayScreen.value = result;
 }
 
 for (let i = 0; i < numberBtns.length; i++) {

@@ -41,6 +41,8 @@ body {
   width: 320px;
   height: 40px;
   border-radius: 10px;
+  text-align: right;
+  font-size: 1.2rem;
 }
 
 .calc-buttons {

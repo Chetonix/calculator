@@ -12,7 +12,7 @@ let sign = "";
 let isNum1Filled = false;
 let isNum2Filled = false;
 let result = ""
-let numberClicked = false;
+// let numberClicked = false;
 let resultEvalued = false;
 function handleNumber() {
     if (resultEvalued) {
@@ -35,6 +35,19 @@ function handleNumber() {
     resultEvalued = false;
     // isOperatorSet = false;
 
+}
+
+function addDecimal () {
+    if (resultEvalued) {
+        number1 = "0" + ".";
+    }
+
+    if(isNum1Filled) {
+        number2 = number2 + ".";
+
+    } else {
+        number1 = number1 + ".";
+    }
 }
 
 function handleOperator() {
@@ -120,3 +133,4 @@ for (let operator of operators) {
 }
 
 equal.addEventListener("click", operate);
+decimal.addEventListener("click", addDecimal);

@@ -5,28 +5,34 @@ let clear = document.querySelector(".clear");
 let decimal = document.querySelector(".decimal");
 let del = document.querySelector(".del");
 let displayScreen = document.getElementById("screen");
-
+// let isOperatorSet = true;
 let number1 = "";
 let number2 = "";
 let sign = "";
 let isNum1Filled = false;
 let isNum2Filled = false;
 let result = ""
-
+let numberClicked = false;
 function handleNumber() {
+    numberClicked = true;
     if (isNum1Filled == false) {
         number1 = number1 + this.textContent;
-        console.log(number1);
+        console.log("num1", number1);
+
     } else {
         number2 = number2 + this.textContent;
-        console.log(number2);
+        console.log("num2", number2);
     }
+    // isOperatorSet = false;
+
 }
 
 function handleOperator() {
+    // isOperatorSet = true;
     sign = this.textContent;
     console.log(sign);
     isNum1Filled = true;
+    numberClicked = false;
 }
 
 function operate() {
@@ -46,13 +52,42 @@ function operate() {
     } else {
         result = number1; //handle later
     }
-    console.log(result);
+    console.log("result", result);
     // result = String(result);
     displayScreen.value = result;
-    number1 = result;
-    number2 = "";
-    isNum1Filled = true;
-    isNum2Filled = false;
+        // isOperatorSet = false;
+        if(numberClicked) {
+            
+        } else {
+            number1 = result;
+            number2 = "";
+            isNum1Filled = true;
+            isNum2Filled = false;
+        }
+    
+
+
+
+    // if (isOperatorSet === false){
+    //     isNum1Filled = false;
+    //     number1 = "";
+    //     number2 = "";
+    // } else {
+    //     number1 = result;
+    //     isNum1Filled = true;
+    //     isNum2Filled = false;
+    // }
+    
+    // if(isOperatorSet === false) {
+    //     isNum1Filled = false;
+    //     number1 = "";
+    //     number2 = "";
+    // } else {
+    //     number1 = result;
+    //     number2 = "";
+    //     isNum1Filled = true;
+    //     isNum2Filled = false;
+    // }
 }
 
 for (let i = 0; i < numberBtns.length; i++) {

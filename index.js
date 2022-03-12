@@ -13,8 +13,16 @@ let isNum1Filled = false;
 let isNum2Filled = false;
 let result = ""
 let numberClicked = false;
+let resultEvalued = false;
 function handleNumber() {
-    numberClicked = true;
+    if (resultEvalued) {
+        // numberClicked = true;
+        number1 = "";
+        number2 = "";
+        isNum1Filled = false;
+        isNum2Filled = false;
+    }
+    
     if (isNum1Filled == false) {
         number1 = number1 + this.textContent;
         console.log("num1", number1);
@@ -23,22 +31,32 @@ function handleNumber() {
         number2 = number2 + this.textContent;
         console.log("num2", number2);
     }
+
+    resultEvalued = false;
     // isOperatorSet = false;
 
 }
 
 function handleOperator() {
     // isOperatorSet = true;
+    if (resultEvalued) {
+        number1 = result;
+        number2 = "";
+        isNum1Filled = true;
+        isNum2Filled = false;
+    }
     sign = this.textContent;
     console.log(sign);
     isNum1Filled = true;
     numberClicked = false;
+    resultEvalued = false;
+
 }
 
 function operate() {
     number1 = parseFloat(number1);
     number2 = parseFloat(number2);
-    // console.log(number1, number2);
+    console.log(number1, number2);
     if (sign == "/") {
         result = number1 / number2;
     } else if (sign == "*") {
@@ -55,15 +73,19 @@ function operate() {
     console.log("result", result);
     // result = String(result);
     displayScreen.value = result;
+    number2 = "";
+    number1 = result;
+    resultEvalued = true; 
         // isOperatorSet = false;
-        if(numberClicked) {
+        // if(numberClicked) {
+        //     number1 = "";
+        //     isNum1Filled = false;
+        //     isNum2Filled = false;
+        // } else {
+        //     number1 = result;
+        //     isNum1Filled = true;
             
-        } else {
-            number1 = result;
-            number2 = "";
-            isNum1Filled = true;
-            isNum2Filled = false;
-        }
+        // }
     
 
 

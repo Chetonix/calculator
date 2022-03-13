@@ -11,10 +11,11 @@ let number2 = "";
 let sign = "";
 let isNum1Filled = false;
 let isNum2Filled = false;
-let result = ""
+let result = "";
+// let prevNumber1 = "";
 // let numberClicked = false;
 let resultEvalued = false;
-function handleNumber() {
+const handleNumber = (e) => {
     if (resultEvalued) {
         // numberClicked = true;
         number1 = "";
@@ -24,11 +25,14 @@ function handleNumber() {
     }
     
     if (isNum1Filled == false) {
-        number1 = number1 + this.textContent;
+        number1 = number1 + e.target.value;
+        // number1 = number1 + this.textContent;
         console.log("num1", number1);
+        // prevNumber1 = number1;
 
     } else {
-        number2 = number2 + this.textContent;
+        number2 = number2 + e.target.value;
+        // number2 = number2 + this.textContent;
         console.log("num2", number2);
     }
 
@@ -37,17 +41,23 @@ function handleNumber() {
 
 }
 
-function addDecimal () {
-    if (resultEvalued) {
-        number1 = "0" + ".";
-    }
+function addDecimal (e) {
+    handleNumber(e);
 
-    if(isNum1Filled) {
-        number2 = number2 + ".";
+    // if (resultEvalued) {
+    //     number1 = "0" + ".";
+    //     isNum1Filled = false;
+    //     handleNumber();
+    //     resultEvalued = false;
+    // }
 
-    } else {
-        number1 = number1 + ".";
-    }
+    // if(isNum1Filled) {
+    //     number2 = number2 + ".";
+
+    // }
+    //  else {
+    //      number1 =  number1 + "." ;
+    // }
 }
 
 function handleOperator() {

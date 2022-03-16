@@ -16,6 +16,17 @@ let result = "";
 // let numberClicked = false;
 let resultEvalued = false;
 const handleNumber = (e) => {
+    // console.log(e.target.value);
+    if (e.target.value == "."){
+        if (!isNum1Filled && number1.toString().includes(".")) {
+            return;
+        }
+        else if(!isNum2Filled && number2.toString().includes(".")){
+            return;
+        }
+    }
+
+
     if (resultEvalued) {
         // numberClicked = true;
         number1 = "";
@@ -28,12 +39,14 @@ const handleNumber = (e) => {
         number1 = number1 + e.target.value;
         // number1 = number1 + this.textContent;
         console.log("num1", number1);
+        displayScreen.value = number1;
         // prevNumber1 = number1;
 
     } else {
         number2 = number2 + e.target.value;
         // number2 = number2 + this.textContent;
         console.log("num2", number2);
+        displayScreen.value = number2;
     }
 
     resultEvalued = false;
@@ -62,6 +75,7 @@ function addDecimal (e) {
 
 function handleOperator() {
     // isOperatorSet = true;
+    
     if (resultEvalued) {
         number1 = result;
         number2 = "";
@@ -135,6 +149,14 @@ function operate() {
     // }
 }
 
+function clearScreen() {
+    number1 = "";
+    number2 = "";
+    isNum1Filled = false;
+    isNum2Filled = false;
+    displayScreen.value = 0;
+}
+
 for (let i = 0; i < numberBtns.length; i++) {
     numberBtns[i].addEventListener("click", handleNumber);
 }
@@ -144,3 +166,4 @@ for (let operator of operators) {
 
 equal.addEventListener("click", operate);
 decimal.addEventListener("click", addDecimal);
+clear.addEventListener("click", clearScreen);

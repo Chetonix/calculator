@@ -39,14 +39,14 @@ const handleNumber = (e) => {
     if (isNum1Filled == false) {
         number1 = number1 + e.target.value;
         // number1 = number1 + this.textContent;
-        console.log("num1", number1);
+        // console.log("num1", number1);
         displayScreen.value = number1;
         // prevNumber1 = number1;
 
     } else {
         number2 = number2 + e.target.value;
         // number2 = number2 + this.textContent;
-        console.log("num2", number2);
+        // console.log("num2", number2);
         displayScreen.value = number2;
     }
 
@@ -92,7 +92,7 @@ function handleOperator() {
         isNum2Filled = false;
     }
     sign = this.textContent;
-    console.log(sign);
+    // console.log(sign);
     isNum1Filled = true;
     // numberClicked = false;
     resultEvalued = false;
@@ -104,7 +104,7 @@ function handleOperator() {
 function operate() {
     number1 = parseFloat(number1);
     number2 = parseFloat(number2);
-    console.log(number1, number2);
+    // console.log(number1, number2);
 
     
 
@@ -121,7 +121,7 @@ function operate() {
     } else {
         result = number1; //handle later
     }
-    console.log("result", result);
+    // console.log("result", result);
     // result = String(result);
     result = Math.round((result + Number.EPSILON) * 100) / 100
     displayScreen.value = result;

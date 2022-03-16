@@ -94,6 +94,9 @@ function operate() {
     number1 = parseFloat(number1);
     number2 = parseFloat(number2);
     console.log(number1, number2);
+
+    
+
     if (sign == "/") {
         result = number1 / number2;
     } else if (sign == "*") {
@@ -109,6 +112,7 @@ function operate() {
     }
     console.log("result", result);
     // result = String(result);
+    result = Math.round((result + Number.EPSILON) * 100) / 100
     displayScreen.value = result;
     number2 = "";
     number1 = result;

@@ -70,7 +70,7 @@ body {
 .btn.equal {
   background-color: #fc3c64;
   width: auto;
-  grid-column: 3 / 5;
+  grid-column: 2 / 5;
 }
 .btn.decimal {
   background-color: #fc9cac;

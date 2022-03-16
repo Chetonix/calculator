@@ -3,7 +3,7 @@ let operators = document.querySelectorAll(".operator");
 let equal = document.querySelector(".equal");
 let clear = document.querySelector(".clear");
 let decimal = document.querySelector(".decimal");
-let del = document.querySelector(".del");
+// let del = document.querySelector(".del");
 let displayScreen = document.getElementById("screen");
 // let isOperatorSet = true;
 let number1 = "";
@@ -12,6 +12,7 @@ let sign = "";
 let isNum1Filled = false;
 let isNum2Filled = false;
 let result = "";
+// let prevOp = false;
 // let prevNumber1 = "";
 // let numberClicked = false;
 let resultEvalued = false;
@@ -76,6 +77,14 @@ function addDecimal (e) {
 function handleOperator() {
     // isOperatorSet = true;
     
+    // if(prevOp){
+    //     operate();
+    //     prevOp = false;
+    // }
+    if(isNum2Filled) {
+        operate();
+    }
+
     if (resultEvalued) {
         number1 = result;
         number2 = "";
@@ -85,8 +94,10 @@ function handleOperator() {
     sign = this.textContent;
     console.log(sign);
     isNum1Filled = true;
-    numberClicked = false;
+    // numberClicked = false;
     resultEvalued = false;
+    // prevOp = true;
+    isNum2Filled =  true;
 
 }
 
@@ -117,6 +128,7 @@ function operate() {
     number2 = "";
     number1 = result;
     resultEvalued = true; 
+    isNum2Filled = false;
         // isOperatorSet = false;
         // if(numberClicked) {
         //     number1 = "";
@@ -161,6 +173,17 @@ function clearScreen() {
     displayScreen.value = 0;
 }
 
+// function deleteAppendedChar(e) {
+//     if(isNum1Filled) {
+//         number1 = number1.toString().substring(0, number1.length - 1);
+//         displayScreen.value = number1;
+//     } else if (isNum2Filled) {
+//         number2 = number2.toString().substring(0, number2.length - 1);
+//         displayScreen.value = number2;
+
+//     }
+// }
+
 for (let i = 0; i < numberBtns.length; i++) {
     numberBtns[i].addEventListener("click", handleNumber);
 }
@@ -171,3 +194,4 @@ for (let operator of operators) {
 equal.addEventListener("click", operate);
 decimal.addEventListener("click", addDecimal);
 clear.addEventListener("click", clearScreen);
+// del.addEventListener("click", deleteAppendedChar);
